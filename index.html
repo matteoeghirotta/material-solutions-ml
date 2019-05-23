@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" -->
+    <!-- 	  rel="stylesheet"> -->
+    
+    <link rel="stylesheet" href="main.css">
+    <script src="webgl-bundle.min.js"></script>
+    <script src="smiles-drawer.min.js"></script>
+    <!--
+    manifest.json provides metadata used when your web app is added to the
+    homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <title>Material Solutions</title>
+    <script>
+      function toggleImageClass() {
+	  let img = document.querySelector('div.header img');
+	  if (img.className === 'logo')
+	      img.className = 'clicked';
+	  else 
+	      img.className = 'logo';
+	  let menu = document.querySelector('div.menu');
+	  if (menu.className === 'menu hidden')
+	      menu.className = 'menu active';
+	  else if (menu.className === 'menu active')
+	      menu.className = 'menu hidden';	 
+      }
+    </script>      
+  </head>
+  <body>
+    <div>
+      <div class="header">
+	<img class="discover"
+	     src="img/ms_logo.png"
+	     onclick="toggleImageClass()">
+	<h1>Material Solutions</h1>
+      </div>
+      <div class="menu hidden">
+	<ul>
+	  <li><a href="#home">Home</a></li>
+	  <li><a href="#products">Products</a></li>
+	  <li><a href="#people">People</a></li>
+	  <li><a href="#contacts">Contacts</a></li>
+	</ul>
+      </div>
+      <section id="main" role="main">
+	<div id="contacts" class="page">
+	  <h2>Contacts</h2>
+	</div>
+	<div id="people" class="page">
+	  <h2>Team</h2>
+	  <h3>Otello Maria Roscioni</h3>
+	  <img class="team" src="img/otello.png">
+	  <h3>Matteo Ricci</h3>
+	  <img class="team" src="img/matteo.png">
+	</div>
+	<div id="products" class="page">
+	  <div id="webgl">
+	    <h2>3D molecule interaction - ANPD</h2>	  
+	    <structure-view src="a-npd.xyz"></structure-view>
+	  </div>
+	  <div id="smiles">
+	    <h2>SMILES</h2>	  
+	    <input id="input" type="text" class="parser"
+		   placeholder="Enter a valid SMILES ..." />
+
+	    <div class="canvas-container">
+	      <canvas id="output-canvas" width="500" height="500"></canvas>
+	    </div>
+
+	    <div id="log">&nbsp;</div>
+
+	    <script>
+	      var input = document.getElementById('input');
+	      var debugCheckbox = document.getElementById('debug');
+	      var bondThicknessInput = document.getElementById('bondThickness')
+	      var textSizeInput = document.getElementById('textSize');
+	      var bondLengthInput = document.getElementById('bondLength');
+	      var shortBondLengthInput = document.getElementById('shortBondLength');
+	      var bondSpacingInput = document.getElementById('bondSpacing');
+	      var sizeInput = document.getElementById('size');
+	      var overlapInput = document.getElementById('overlap');
+
+	      var options = {
+		  debug: false,
+		  atomVisualization: 'default'
+	      }
+
+	      var smilesDrawer = new SmilesDrawer.Drawer(options);
+	      var input = document.getElementById('input');
+	      var log = document.getElementById('log');
+
+	      function draw() {
+		  let t = performance.now();
+
+		  SmilesDrawer.parse(input.value, function (tree) {
+		      smilesDrawer.draw(tree, 'output-canvas', 'light', false);
+		      let td = performance.now() - t;
+		      log.innerHTML = '&nbsp;';
+		      log.style.visibility = 'hidden';
+
+		      // new Noty({
+		      // 	  text: 'Drawing took ' + td.toFixed(3) + 'ms with a total overlap score of ' + smilesDrawer.getTotalOverlapScore().toFixed(3) + '.',
+		      // 	  killer: true,
+		      // 	  timeout: 2000,
+		      // 	  animation: {
+		      // 	      open: null,
+		      // 	      close: null
+		      // 	  }
+		      // }).show();
+
+		      console.log(smilesDrawer.getMolecularFormula());
+		  }, function (err) {
+		      log.innerHTML = err;
+		      log.style.visibility = 'visible';
+		      console.log(err);
+		  });      
+	      }
+
+	      function updateOptions() {
+		  smilesDrawer = new SmilesDrawer.Drawer(options);
+		  draw();
+	      }
+
+	      document.addEventListener('DOMContentLoaded', function (event) {
+		  input.addEventListener('input', function () {
+		      draw();
+		  });
+
+		  debugCheckbox.addEventListener('click', function () {
+		      options.debug = debugCheckbox.checked ? true : false;
+		      updateOptions();
+		  });
+
+		  textSizeInput.addEventListener('input', function () {
+		      options.fontSizeLarge = parseInt(textSizeInput.value);
+		      options.fontSizeSmall = (3 / 5) * options.fontSizeLarge;
+		      updateOptions();
+		  });
+
+		  bondThicknessInput.addEventListener('input', function () {
+		      options.bondThickness = parseFloat(bondThicknessInput.value);
+		      updateOptions();
+		  });
+
+		  bondLengthInput.addEventListener('input', function () {
+		      options.bondLength = parseInt(bondLengthInput.value);
+		      updateOptions();
+		  });
+
+		  shortBondLengthInput.addEventListener('input', function () {
+		      options.shortBondLength = parseInt(shortBondLengthInput.value) / 100;
+		      updateOptions();
+		  });
+
+		  bondSpacingInput.addEventListener('input', function () {
+		      options.bondSpacing = parseInt(bondSpacingInput.value);
+		      updateOptions();
+		  });
+
+		  sizeInput.addEventListener('input', function () {
+		      options.width = parseInt(sizeInput.value);
+		      options.height = parseInt(sizeInput.value);
+		      updateOptions();
+		  });
+
+		  overlapInput.addEventListener('input', function () {
+		      options.overlapResolutionIterations = parseInt(overlapInput.value);
+		      updateOptions();
+		  });
+	      });
+	    </script>
+
+	  </div>
+	</div>
+	<div id="home" class="page">
+	  <h2>Accessible Computational Chemistry</h2>
+	</div>
+
+      </section>
+
+    </div>
+  </body>
+</html>

@@ -14,8 +14,11 @@ div.header {
 }
 
 div.header h1 {
-    font-size: 6em;
-    font-weight: 700;
+position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 5em;
+    font-weight: bold;
     display: block;
     float: left;    
     margin:0;
@@ -136,9 +139,7 @@ div.content {
     display: block;
     float: left;
     margin: 12px;
-    /* background: #ff0000; */
 }
-
 
 #main > * {
   display: none;
@@ -171,9 +172,8 @@ div.content {
 structure-view {
     display: block;
     float: left;
-    /* position:absolute; */
     width:  60vw;
-    height: 60vh;
+    height: 8emvh;
 }
 
 canvas {
@@ -194,7 +194,12 @@ div#smiles {
 
 section h2 {
     font-size: 1.75em;
+    margin: 12px;
     display: block;
+}
+
+div#smiles h2 {
+    width: 60vw;
 }
 
 input[type=text] {
@@ -214,4 +219,12 @@ input[type=text] {
 
 input[type=text]::placeholder {
     color: rgba(0, 0, 0, 1);
+}
+
+smiles-canvas {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    /* width:  80vw; */
+    height: 2em;
 }

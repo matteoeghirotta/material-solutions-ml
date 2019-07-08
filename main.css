@@ -200,8 +200,14 @@ img.usecase {
     
 }
 
+figure {
+  display: table;
+    float:left;
+}
+
 figcaption {
-    display:block;
-    font-size: 1.5em;
-    margin: 1.5em;
+  display: table-caption;
+  caption-side: top;
+  font-size: 1.5em;
+  margin: 1.5em;
 }

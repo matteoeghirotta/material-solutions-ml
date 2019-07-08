@@ -16,10 +16,26 @@ div.header {
 
 div.header h1 {
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 25%;
+    /* transform: translateY(-50%); */
     font-size: 6vw;
-    /* font-size: 5em; */
+    font-weight: bold;    
+    display: block;
+    float: left;    
+    margin:0;
+    margin-left: 0.5em;
+    animation-name: fade-opacity;
+    animation-duration: 2.25s;
+}
+
+div.header h2 {
+    font-size: 3vw;
+    line-height: 120%;
+    margin: 0.1em;
+    display: block;
+    position: relative;
+    top: 35%;
+    /* transform: translateY(-50%); */
     font-weight: bold;    
     display: block;
     float: left;    
@@ -91,7 +107,7 @@ div.menu {
     float: right;
     /* height: 100vh; */
     margin: 0.25em;
-    font-size: 1.75em;
+    font-size: 1.25em;
 }
 
 div.menu > ul {
@@ -163,16 +179,17 @@ div.content {
   }
   0% {
       opacity: 0;
-      transform: scale3d(0.3, 0.3, 0.3);
+      /* transform: scale3d(0.3, 0.3, 0.3); */
   }
   to {
       opacity: 1;
-      transform: scale3d(1, 1, 1);
+      /* transform: scale3d(1, 1, 1); */
   }
 }
 
 section h2 {
-    font-size: 2.5em;
+    /* font-size: 2.5em; */
+    font-size: 3vw;
     line-height: 120%;
     margin: 0.1em;
     display: block;

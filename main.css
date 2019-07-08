@@ -16,31 +16,27 @@ div.header {
 
 div.header h1 {
     position: relative;
-    top: 25%;
-    /* transform: translateY(-50%); */
-    font-size: 6vw;
-    font-weight: bold;    
+    top: 20%;
     display: block;
     float: left;    
-    margin:0;
-    margin-left: 0.5em;
+    font-size: 5vw;
+    font-weight: bold;    
+    /* margin:0; */
+    /* padding: 0 0.2em 0; */
+    /* margin-left: 0.5em; */
     animation-name: fade-opacity;
     animation-duration: 2.25s;
 }
 
 div.header h2 {
-    font-size: 3vw;
-    line-height: 120%;
-    margin: 0.1em;
-    display: block;
     position: relative;
-    top: 35%;
-    /* transform: translateY(-50%); */
-    font-weight: bold;    
+    top: 30%;
     display: block;
     float: left;    
-    margin:0;
-    margin-left: 0.5em;
+    font-size: 2.5vw;
+    font-weight: bold;    
+    line-height: 120%;
+    margin: 0 20vw 0 0;
     animation-name: fade-opacity;
     animation-duration: 2.25s;
 }
@@ -203,7 +199,7 @@ section h3 {
 }
 
 section p {
-    font-size: 1.5em;
+    font-size: 1.35em;
     text-align: left;
     padding: 0 2em 0 2em;
     margin: 0.1em;

@@ -33,7 +33,7 @@ div.header h2 {
     top: 30%;
     display: block;
     float: left;    
-    font-size: 2.5vw;
+    font-size: 3vw;
     font-weight: bold;    
     line-height: 120%;
     margin: 0 20vw 0 0;
@@ -206,22 +206,22 @@ section p {
     display: block;
 }
 
-img.usecase {
-    width: 28vw;
-}
-
 #contacts h3 {
     text-align: left;    
 }
 
 figure {
   display: table;
-    float:left;
+  float: left;
 }
 
 figcaption {
   display: table-caption;
   caption-side: top;
-  font-size: 1.5em;
-  margin: 1.5em;
+  font-size: 1.25em;
+  /* margin: 1.25em; */
+}
+
+img.usecase {
+    width: 28vw;
 }

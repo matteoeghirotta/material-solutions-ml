@@ -89,7 +89,7 @@ div.header > img.clicked {
 div.menu {
     display: block;
     float: right;
-    height: 100vh;
+    /* height: 100vh; */
     margin: 0.25em;
     font-size: 1.75em;
 }

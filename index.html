@@ -11,8 +11,6 @@
     <!-- 	  rel="stylesheet"> -->
     
     <link rel="stylesheet" href="main.css">
-    <script src="webgl-bundle.min.js"></script>
-    <script src="smiles-drawer.min.js"></script>
     <!--
     manifest.json provides metadata used when your web app is added to the
     homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
@@ -46,135 +44,90 @@
       <div class="menu hidden">
 	<ul>
 	  <li><a href="#home">Home</a></li>
-	  <li><a href="#products">Products</a></li>
-	  <li><a href="#people">People</a></li>
+	  <!-- <li><a href="#products">Products</a></li> -->
+	  <!-- <li><a href="#people">People</a></li> -->
 	  <li><a href="#contacts">Contacts</a></li>
 	</ul>
       </div>
       <section id="main" role="main">
 	<div id="contacts" class="page">
-	  <h2>Contacts</h2>
-	</div>
-	<div id="people" class="page">
 	  <h2>Team</h2>
-	  <h3>Otello Maria Roscioni</h3>
-	  <img class="team" src="img/otello.png">
+	  <h3>Otello M. Roscioni, PhD</h3>
+	  <p>CEO</p>
+	  <p> Chemist, University of Bologna.</p>
+	  <p>roscioni@gmail.com  +39 328 850 4123</p>
+	  <!-- <img class="team" src="img/otello.jpg"> -->
 	  <h3>Matteo Ricci</h3>
-	  <img class="team" src="img/matteo.png">
+	  <p>CTO</p>
+	  <p>Chemist, University of Bologna.</p>
+	  <p>matteoeghirotta@gmail.com</p>
+	  <!-- <img class="team" src="img/matteo.png"> -->
+
+	  <h3>Francesco Fiorini</h3>
+	  <p>Business Development</p>
+	  <p>Industrial excellence leader, GSK Vaccines.</p>
+	  <p>f.fiorini@gmail.com +39 329 906 3088</p>
+
+	  <h3>Andrés F Rendón</h3>
+	  <p>Business Development</p>
+	  <p>CMO & planning manager, Teva Pharmaceutical.</p>
+	  <p>andresrendon@yahoo.com +39 333 940 8947</p>
 	</div>
-	<div id="products" class="page">
-	  <div id="webgl">
-	    <h2>3D molecule interaction - ANPD</h2>	  
-	    <structure-view src="a-npd.xyz"></structure-view>
-	  </div>
-	  <div id="smiles">
-	    <h2>SMILES</h2>	  
-	    <input id="input" type="text" class="parser"
-		   placeholder="Enter SMILES ..." />
-
-	    <div class="canvas-container">
-	      <canvas id="smiles-canvas"></canvas>
-	    </div>
-
-	    <div id="log">&nbsp;</div>
-
-	    <script>
-	      var input = document.getElementById('input');
-	      var debugCheckbox = document.getElementById('debug');
-	      var bondThicknessInput = document.getElementById('bondThickness')
-	      var textSizeInput = document.getElementById('textSize');
-	      var bondLengthInput = document.getElementById('bondLength');
-	      var shortBondLengthInput = document.getElementById('shortBondLength');
-	      var bondSpacingInput = document.getElementById('bondSpacing');
-	      var sizeInput = document.getElementById('size');
-	      var overlapInput = document.getElementById('overlap');
-
-	      var options = {
-		  debug: false,
-		  atomVisualization: 'default'
-	      }
-
-	      var smilesDrawer = new SmilesDrawer.Drawer(options);
-	      var input = document.getElementById('input');
-	      var log = document.getElementById('log');
-
-	      function draw() {
-		  let t = performance.now();
-
-		  SmilesDrawer.parse(input.value, function (tree) {
-		      smilesDrawer.draw(tree, 'smiles-canvas', 'light', false);
-		      let td = performance.now() - t;
-		      log.innerHTML = '&nbsp;';
-		      log.style.visibility = 'hidden';
-
-		      console.log(smilesDrawer.getMolecularFormula());
-		  }, function (err) {
-		      log.innerHTML = err;
-		      log.style.visibility = 'visible';
-		      console.log(err);
-		  });      
-	      }
-
-	      function updateOptions() {
-		  smilesDrawer = new SmilesDrawer.Drawer(options);
-		  draw();
-	      }
-
-	      document.addEventListener('DOMContentLoaded', function (event) {
-		  input.addEventListener('input', function () {
-		      draw();
-		  });
-
-		  debugCheckbox.addEventListener('click', function () {
-		      options.debug = debugCheckbox.checked ? true : false;
-		      updateOptions();
-		  });
-
-		  textSizeInput.addEventListener('input', function () {
-		      options.fontSizeLarge = parseInt(textSizeInput.value);
-		      options.fontSizeSmall = (3 / 5) * options.fontSizeLarge;
-		      updateOptions();
-		  });
-
-		  bondThicknessInput.addEventListener('input', function () {
-		      options.bondThickness = parseFloat(bondThicknessInput.value);
-		      updateOptions();
-		  });
-
-		  bondLengthInput.addEventListener('input', function () {
-		      options.bondLength = parseInt(bondLengthInput.value);
-		      updateOptions();
-		  });
-
-		  shortBondLengthInput.addEventListener('input', function () {
-		      options.shortBondLength = parseInt(shortBondLengthInput.value) / 100;
-		      updateOptions();
-		  });
-
-		  bondSpacingInput.addEventListener('input', function () {
-		      options.bondSpacing = parseInt(bondSpacingInput.value);
-		      updateOptions();
-		  });
-
-		  sizeInput.addEventListener('input', function () {
-		      options.width = parseInt(sizeInput.value);
-		      options.height = parseInt(sizeInput.value);
-		      updateOptions();
-		  });
-
-		  overlapInput.addEventListener('input', function () {
-		      options.overlapResolutionIterations = parseInt(overlapInput.value);
-		      updateOptions();
-		  });
-	      });
-	    </script>
-
-	  </div>
-	</div>
+	<!-- <div id="products" class="page"> -->
+	<!-- </div> -->
 	<div id="home" class="page">
 	  <h2>Accessible Computational Chemistry</h2>
-	</div>
+	  <h3>Overview</h3>
+	  <p>
+	    Material Solutions [MS] provides consultancy on material
+	    science using a combination of molecular dynamics and
+	    electronic-structure methods.
+	  </p>
+	  <p>
+	    The MS scientific tools have been developed by the
+	    founders in the EU project EXTMOS, and already validated
+	    in several peer-reviewed publications.
+	  </p>
+	  <h3>Value proposition</h3>
+	  <p>
+	  The MS approach delivers an accurate representation of a
+	  molecule, but 100 times faster than existing software packages with
+	  comparable level of precision.
+	  </p>
+	  <p>
+	  In this method the atoms are replaced with large ellipsoidal
+	  particles, increasing the computational efficiency and hiding the
+	  molecular structure, adding an additional level of security while
+	  deploying the software.
+	  </p>
+	  <p>
+	  The MS approach is suitable to simulating
+	  molecular functional materials, such as organic semiconductors, liquid
+	  crystals, polymers, biomolecules, and multi-component systems.
+	  </p>	  
+	  <h3>Use cases</h3>
+	  <figure>
+	    <img class="usecase" src="img/polymer.png">
+	    <figcaption>
+	      Polymers
+	    </figcaption>
+	  </figure>
 
+	  <figure>
+	    <img class="usecase" src="img/interface.png">
+	    <figcaption>
+	      Interfaces
+	    </figcaption>
+	  </figure>
+
+	  <figure>
+	    <img class="usecase" src="img/dope.png">
+	    <figcaption>
+	      <!-- Evaluation of doping efficiency in amorphous-matrix -->
+	      Organic semiconductors
+	    </figcaption>
+	  </figure>	  
+	</div>
       </section>
 
     </div>

@@ -3,6 +3,7 @@
 body {
     font-family: 'Roboto Condensed', 'Source Sans Pro', 'Trebuchet MS', 'Lucida Grande', 'Bitstream Vera Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
+    line-height: 180%;
     text-align: center;
     color: #293c4b;
     background-color: #eeeeee;
@@ -41,7 +42,7 @@ div.header > img.discover {
     clear: both;
     animation-name: pulse-cw-logo;
     animation-direction: alternate;
-    animation-duration: 0.5s;
+    animation-duration: 0.65s;
     animation-iteration-count: infinite;
 }
 
@@ -138,7 +139,7 @@ div.menu.hidden {
 div.content {
     display: block;
     float: left;
-    margin: 12px;
+    margin: 0.1em;
 }
 
 #main > * {
@@ -169,62 +170,38 @@ div.content {
   }
 }
 
-structure-view {
-    display: block;
-    float: left;
-    width:  60vw;
-    height: 8emvh;
-}
-
-canvas {
-    margin: 20px;
-    padding: 0;
-    width: 100%;
-}    
-
-div#webgl {
-    display:block;
-    float: left;
-}
-
-div#smiles {
-    display:block;
-    float: left;
-}
-
 section h2 {
+    font-size: 3em;
+    margin: 0.1em;
+    display: block;
+}
+
+section h3 {
+    font-weight: bold;
     font-size: 1.75em;
-    margin: 12px;
+    margin: 1em 0 1em 0;
     display: block;
 }
 
-div#smiles h2 {
-    width: 60vw;
-}
-
-input[type=text] {
+section p {
+    font-size: 1.5em;
+    text-align: left;
+    padding: 0 2em 0 2em;
+    margin: 0.1em;
     display: block;
-    box-sizing: border-box;
-    width: 100%;
-    background: rgba(35, 35, 35, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 10px;
-    margin: 20px;
-    /* margin-bottom: 5px; */
-    border-radius: 5px;
-    color: #000;
-    font-size: 1.00em;
-    outline: none;
 }
 
-input[type=text]::placeholder {
-    color: rgba(0, 0, 0, 1);
+img.usecase {
+    width: 30vw;
 }
 
-smiles-canvas {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    /* width:  80vw; */
-    height: 2em;
+#contacts h3 {
+    text-align: left;
+    
+}
+
+figcaption {
+    display:block;
+    font-size: 1.5em;
+    margin: 1.5em;
 }

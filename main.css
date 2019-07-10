@@ -44,7 +44,8 @@ section h3 {
 }
 
 /* Smartphones (portrait and landscape) */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* @media only screen and (min-device-width : 320px) and (max-device-width : 480px) { */
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px) {
     div.header {
 	height: 5em;
 	margin: 0;
@@ -93,7 +94,7 @@ section h3 {
 }
 
 /* Smartphones (landscape) */
-@media only screen and (min-width : 321px) {
+@media only screen and (min-width : 321px) and (orientation : landscape) {
     div.header h1 {
 	position: relative;
 	top: 20%;

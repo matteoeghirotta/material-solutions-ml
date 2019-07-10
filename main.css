@@ -90,6 +90,7 @@ section h3 {
 	display: table-caption;
 	caption-side: top;
 	font-size: 0.8em;
+	line-height: 100%;
     }
 }
 

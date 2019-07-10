@@ -14,31 +14,162 @@ div.header {
     margin: 0;
 }
 
-div.header h1 {
-    position: relative;
-    top: 20%;
-    display: block;
-    float: left;    
-    font-size: 5vw;
-    font-weight: bold;    
-    /* margin:0; */
-    /* padding: 0 0.2em 0; */
-    /* margin-left: 0.5em; */
-    animation-name: fade-opacity;
-    animation-duration: 2.25s;
+figure {
+  display: table;
+  float: left;
 }
 
-div.header h2 {
-    position: relative;
-    top: 30%;
-    display: block;
-    float: left;    
+figcaption {
+  display: table-caption;
+  caption-side: top;
+  font-size: 1.25em;
+}
+
+img.usecase {
+    width: 32vw;
+}
+section h2 {
+    /* font-size: 2.5em; */
     font-size: 3vw;
-    font-weight: bold;    
     line-height: 120%;
-    margin: 0 15vw 0 0;
-    animation-name: fade-opacity;
-    animation-duration: 2.25s;
+    margin: 0.1em;
+    display: block;
+}
+
+section h3 {
+    font-weight: bold;
+    font-size: 1.75em;
+    margin: 1.5em 1em 1em 1em;
+    display: block;
+}
+
+/* Smartphones (portrait and landscape) */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    div.header h1 {
+	position: relative;
+	top: 20%;
+	display: block;
+	float: left;    
+	font-size: 1.5em;
+	font-weight: bold;    
+	animation-name: fade-opacity;
+	animation-duration: 2.25s;
+    }
+
+    div.header h2 {
+	position: relative;
+	top: 30%;
+	display: block;
+	float: left;    
+	font-size: 0.6em;
+	font-weight: bold;    
+	line-height: 120%;
+	margin: 0 15vw 0 0;
+	animation-name: fade-opacity;
+	animation-duration: 2.25s;
+    }
+    
+    section h3 {
+	font-weight: bold;
+	font-size: 1.25em;
+	margin: 1.5em 1em 1em 1em;
+	display: block;
+    }
+
+    .page p {
+	font-size: 0.75em;
+    }
+
+    figcaption {
+	display: table-caption;
+	caption-side: top;
+	font-size: 0.8em;
+    }
+}
+
+/* Smartphones (landscape) */
+@media only screen and (min-width : 321px) {
+    div.header h1 {
+	position: relative;
+	top: 20%;
+	display: block;
+	float: left;    
+	font-size: 3.5em;
+	font-weight: bold;    
+	animation-name: fade-opacity;
+	animation-duration: 2.25s;
+    }
+
+    div.header h2 {
+	position: relative;
+	top: 30%;
+	display: block;
+	float: left;    
+	font-size: 1.5em;
+	font-weight: bold;    
+	line-height: 120%;
+	margin: 0 15vw 0 0;
+	animation-name: fade-opacity;
+	animation-duration: 2.25s;
+    }
+}
+
+/* Desktops and laptops  */
+@media only screen  and (min-width : 1224px) {
+    div.header h1 {
+	position: relative;
+	top: 20%;
+	display: block;
+	float: left;    
+	font-size: 6vw;
+	font-weight: bold;    
+	animation-name: fade-opacity;
+	animation-duration: 2.25s;
+    }
+
+    div.header h2 {
+	position: relative;
+	top: 30%;
+	display: block;
+	float: left;    
+	font-size: 3vw;
+	font-weight: bold;    
+	line-height: 120%;
+	margin: 0 15vw 0 0;
+	animation-name: fade-opacity;
+	animation-duration: 2.25s;
+    }
+}
+
+/* Large screens  */
+@media only screen and (min-width : 1824px) {
+    .page p {
+	margin: 0 12vw 0 12vw;
+    }
+    
+    div.header h1 {
+	position: relative;
+	top: 20%;
+	display: block;
+	float: left;    
+	font-size: 4vw;
+	font-weight: bold;    
+	animation-name: fade-opacity;
+	animation-duration: 2.25s;
+    }
+
+    div.header h2 {
+	position: relative;
+	top: 30%;
+	display: block;
+	float: left;    
+	font-size: 1.5vw;
+	font-weight: bold;    
+	line-height: 120%;
+	margin: 0 50vw 0 0;
+	animation-name: fade-opacity;
+	animation-duration: 2.25s;
+    }
 }
 
 @keyframes fade-opacity {
@@ -149,12 +280,6 @@ div.menu.hidden {
     to { transform: translateX(0%); }
 }
 
-div.content {
-    display: block;
-    float: left;
-    margin: 0.1em;
-}
-
 #main > * {
   display: none;
 }
@@ -183,21 +308,6 @@ div.content {
   }
 }
 
-section h2 {
-    /* font-size: 2.5em; */
-    font-size: 3vw;
-    line-height: 120%;
-    margin: 0.1em;
-    display: block;
-}
-
-section h3 {
-    font-weight: bold;
-    font-size: 1.75em;
-    margin: 1.5em 1em 1em 1em;
-    display: block;
-}
-
 section p {
     font-size: 1.35em;
     text-align: left;
@@ -208,20 +318,4 @@ section p {
 
 #contacts h3 {
     text-align: left;    
-}
-
-figure {
-  display: table;
-  float: left;
-}
-
-figcaption {
-  display: table-caption;
-  caption-side: top;
-  font-size: 1.25em;
-  /* margin: 1.25em; */
-}
-
-img.usecase {
-    width: 28vw;
 }
